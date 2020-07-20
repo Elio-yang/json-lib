@@ -6,7 +6,10 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#define EXPECT(c, ch) do {assert(*c->json==(ch));c->json++;} while(0)
+#define EXPECT(c, ch) do {\
+    assert(*c->json==(ch));\
+    c->json++;\
+    } while(0)
 
 typedef struct {
     const char *json;
