@@ -12,7 +12,7 @@ typedef struct {
     const char *json;
 } json_context;
 
-static void json_parse_whilespace(json_context *c) {
+static void json_parse_whitespace(json_context *c) {
     const char *p = c->json;
     while (*p==' '||*p=='\t'||*p=='\n'||*p=='\r'){
         p++;
@@ -43,7 +43,7 @@ int json_parse(json_value *v,const char *json){
     assert(v!=NULL);
     c.json=json;
     v->type=JSON_NULL;
-    json_parse_whilespace(&c);
+    json_parse_whitespace(&c);
     return json_parse_value(&c,v);
 }
 
